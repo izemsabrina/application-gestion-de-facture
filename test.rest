@@ -1,0 +1,46 @@
+###ADMIN
+POST http://localhost:8081/cda/projet/auth/authenticate
+Content-Type: application/json
+
+{
+    "email": "sabrinaizem@gmail.com",
+    "password":"1234"
+}
+###USER
+POST http://localhost:8081/cda/projet/auth/authenticate
+Content-Type: application/json
+
+{
+    "email": "samira@gmail.com",
+    "password":"1234"
+}
+### token user
+GET  http://localhost:8081/cda/projet/salarie
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJVU0VSIl0sInN1YiI6InNhbWlyYUBnbWFpbC5jb20iLCJpYXQiOjE3MDIxNDI3MTgsImV4cCI6MTcwMjIyOTExOH0.-K2dMhv3KiQcAHMQj8WCGWxD_r0_dZ_11BuFMUXt5sg
+### token admin
+GET  http://localhost:8081/cda/projet/salarie
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJzdWIiOiJzYWJyaW5haXplbUBnbWFpbC5jb20iLCJpYXQiOjE3MDIxNDI2NDcsImV4cCI6MTcwMjIyOTA0N30.0p2MNTq4G29igFLtdePBOrJsJ5TW0fQkIDxP7hHbEeM
+### 
+PUT http://localhost:8081/cda/projet/admin/facture/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJzdWIiOiJzYWJyaW5haXplbUBnbWFpbC5jb20iLCJpYXQiOjE3MDIxMzAyODcsImV4cCI6MTcwMjIxNjY4N30.BBM6PBCS6FJRD-Vqe7ol9UVbII63CwRkC6vKweYY0lc
+
+{
+    "mail":"JA@gmail.com"
+}
+###
+POST http://localhost:8081/cda/projet/admin/facture
+Content-Type: application/json
+
+{
+  	"dateCreation":"12/12/122",
+	"name":"FSDFS",
+	 "adresse":"SDFS",
+	 "telephone":"324234",
+	 "mail":"N@gmail.com",
+	 "factureHTT":1234,
+    "factureTTC":1234,
+	"statut":"ATTENTE"
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Facture</title>
+</head>
+<body>
+    <header>
+        <nav>
+         
+          </label>
+          <label class="logo">
+            <a href="../gestionFacture/pagegestion.html"
+              ><img
+                class="image-logo"
+                src="/img/logoflsplomberie.png"
+                width="90px"
+                height="90px"
+                alt="Logo de l'entreprise"
+            /></a>
+          </label>
+        </nav>
+      </header>
+    <div class="facture">
+        
+        <h2>FLS Entreprise Plomberie</h2>
+        <form id="facture">
+            <table>
+                <caption>
+                    Facture
+                </caption>
+              
+                <tr>
+                    <td>
+                        <label for="dateCreation">Date d'émission</label>
+                    </td>
+                    <td>
+                        <input type="date" id="dateCreation" placeholder="dateCreation" autofocus required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="name">Nom du client</label>
+                    </td>
+                    <td>
+                        <input type="text" id="name" placeholder="name" autofocus required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="adresse">Adresse</label>
+                    </td>
+                    <td>
+                        <input type="text" id="adresse" placeholder="adresse" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="telephone">Téléphone</label>
+                    </td>
+                    <td>
+                        <input type="text" id="telephone" placeholder="telephone" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="mail">Email</label>
+                    </td>
+                    <td>
+                        <input type="email" id="mail" placeholder="mail" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="factureHTT">Facture HTT</label>
+                    </td>
+                    <td>
+                        <input type="text" id="factureHTT" placeholder="factureHTT" required ></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="factureTTC">Facture TTC</label>
+                    </td>
+                    <td>
+                        <input type="text" id="factureTTC" placeholder="factureTTC" readonly ></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="selectOption">Statut</label>
+                    </td>
+                    <td>
+                        <input type="text" id="statut" placeholder="En création" readonly></textarea>
+                    </td>
+                </tr>
+                    <td colspan>
+                        <button class="submitf" type="submit">Créer</button>
+                        <!-- <button type="submit">Télécharger</button>
+                        <button type="submit">Envoyer</button>
+                        <button type="submit">Imprimer</button>
+                        <button type="submit">Modifier</button>
+                        <button type="submit">Supprimer</button> -->
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <!--<button id="test">Test</button>!-->
+    </div>
+    <script type="module" src="facture.js"></script>
+   <!-- <a href="../accueil/index.html">Accueil</a> -->
+</body>
+</html>

@@ -1,0 +1,327 @@
+/* Réinitialisation des styles par défaut */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:Arial, Helvetica, sans-serif;
+  /* background-image: url("../img/prombier.bmp"); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-color: rgba(255, 215, 0, 0.4); */
+}
+
+/* Logo */
+.logo img {
+  transition: transform 0.3s;
+  position: absolute;
+  background-color: transparent;
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 10%;
+  height: 70px;
+}
+
+.logo img:hover {
+  transform: scale(0.9);
+}
+
+/* Navigation */
+nav {
+  background-color: #ffffff;
+  height: 80px;
+  width: 100%;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+  z-index: 999;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  line-height: 50px;
+  margin: 0 5px;
+  background-color: #fcbd5c;
+  border-radius: 30px;
+  margin-top: 20px;
+}
+
+nav ul li a {
+  color: #121211;
+  font-size: 17px;
+  padding: 10px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+
+nav ul li a:hover {
+  color: #100e03;
+  /* background-color: #208f57; Ajout d'une couleur de fond au survol */
+  /* border-radius: 10px; Ajout de coins arrondis */
+  /* padding: 10px 20px; Augmentation de la taille au survol */
+}
+
+.checkbtn #bars, .checkbtn #cancel {
+  font-size: 30px;
+  color: #151212;
+  float: right;
+  margin: 20px;
+  cursor: pointer;
+  display: none;
+  transition: all 0.2s ease;
+}
+
+#check {
+  display: none;
+}
+
+/* Styles pour les écrans plus petits (responsive) */
+@media only screen and (max-width: 980px) {
+  .logo {
+    padding-left: 40px;
+  }
+
+  .checkbtn #bars {
+    display: block;
+  }
+
+  nav ul {
+    position: fixed;
+    background: #119dc0;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    margin-top: 40px;
+    right: -100%;
+    margin-right: 0;
+    transition: all 0.3s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 40px 0;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+  }
+  
+
+  #check:checked ~ ul {
+    right: 0;
+  }
+
+  #check:checked ~ label #bars {
+    display: none;
+  }
+
+  #check:checked ~ label #cancel {
+    display: block;
+  }
+}
+
+/* Styles de la section "hero" */
+.hero {
+  background-image: linear-gradient(rgba(95, 159, 209, 0.8), rgba(17, 157, 192, 0.8)), url(../img/bmryba5y.bmp);
+  height: calc(100vh - 80px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0% 80%);
+}
+
+.inner_content {
+  width: 800px;
+  color: rgb(2, 2, 2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inner_content h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+.inner_content p {
+  font-size: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.button {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  color: #001F3F;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  border-radius: 10px;
+}
+
+.btn-book-now {
+  background-color: #fcbd5c;
+  margin-right: 10px;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.btn-book-now:hover {
+  background-color: transparent;
+  border: 2px solid #119dc0;
+}
+
+.btn-read-more {
+  border: 2px solid #119dc0;
+  transition: all 0.3s;
+}
+
+.btn-read-more:hover {
+  background-color: #119dc0;
+  border: 2px solid transparent;
+}
+
+/* Styles de l'image de facturation */
+.image-facturation {
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
+  margin-right: 200px;
+  position: relative;
+}
+
+.image-facturation img {
+  max-width: 90%;
+  height: 100%;
+  margin-top: -90px;
+}
+
+@media only screen and (max-width: 900px) {
+  .image-facturation {
+    justify-content: center;
+    margin: 10%;
+  }
+
+  .image-facturation img {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Styles du pied de page */
+footer {
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  background-color: #119dc0;
+  padding: 50px 10%;
+  width: 100%;
+  gap: 20%;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer-col {
+  width: 100%;
+}
+
+
+
+.footer-col ul li h3 {
+  font-size: 16px;
+  font-weight: normal;
+  padding: 10px;
+  line-height: 1.5;
+}
+
+.footer-col ul a {
+  text-decoration: none;
+  color: #ffffff;
+  line-height: 1.5;
+}
+@media only screen and (max-width: 600px) {
+  footer {
+    flex-direction: column; /* Alignement vertical des éléments du footer */
+  }
+
+  .footer-col {
+    width: 100%;
+    margin-bottom: 20px; /* Ajout d'un espace entre les colonnes */
+  }
+
+  .footer-col ul li h3 {
+    font-size: 14px; /* Réduire la taille de la police pour les écrans plus petits */
+  }
+}
+.phone-emulator {
+  background-color: #333;
+  border: 10px solid #000;
+  border-radius: 15px;
+  width: 300px;
+  height: 600px;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.phone-screen {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-pages {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.phone-page {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Barre de navigation */
+.navigation-bar {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.nav-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 5px;
+}

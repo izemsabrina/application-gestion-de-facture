@@ -1,0 +1,573 @@
+//
+//@PutMapping("/facture/{id}")
+//public ResponseEntity<?> updateFacture(@PathVariable Long id, @RequestBody FactureRequestDto updatedFacture) {
+//  try {
+//      // Vérifiez si la facture existe
+//      Facture existingFacture = factureService.getFactureById(id);
+//
+//      if (existingFacture != null) {
+//          // Mettez à jour les données de la facture
+//          existingFacture.setStatut(updatedFacture.getStatut().toString());
+//          factureService.updateService(id ,updatedFacture );
+//
+//          // Enregistrez la facture mise à jour
+//          factureService.saveFacture(existingFacture);
+//
+//          return ResponseEntity.ok("Facture mise à jour avec succès.");
+//      } else {
+//          return ResponseEntity.notFound().build();
+//      }
+//  } catch (Exception e) {
+//      return ResponseEntity.internalServerError().body("Erreur lors de la mise à jour de la facture : " + e.getMessage());
+//  }
+//}
+
+//@RestController
+//@RequestMapping("cda/projet/admins")
+//public class FactureController {
+//	
+//	@Autowired
+//	private FactureService factureService;
+//	
+//	@GetMapping("/coucou")
+//	public String hello() {
+//		return "Coucou les copains";
+//	}
+//	
+//
+//	@PostMapping("/facture")
+//	public ResponseEntity<?> facture(@RequestBody FactureRequestDto request){
+//		try {
+//			System.out.println("c'est la facture");
+//			return factureService.facture(request);
+//		}catch(Exception e ) {
+//			return ResponseEntity.ok().body("Ouf ca marche pas facture " + e.getMessage());
+//		}
+//	
+//	}
+//	@GetMapping("/facture")
+//	public ResponseEntity<?> getFactures() {
+//	    try {
+//	        // Ici, vous récupéreriez les factures depuis votre service ou votre base de données.
+//	        List<Facture> factures = factureService.getAllFactures();
+//	        
+//	        // Vous renverrez ensuite les données au format JSON en utilisant ResponseEntity.
+//	        return ResponseEntity.ok(factures);
+//	    } catch (Exception e) {
+//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erreur lors de la récupération des factures : " + e.getMessage());
+//	    }
+//	}
+//	@DeleteMapping("/facture/{id}")
+//	public ResponseEntity<?> deleteFacture(@PathVariable Long id) {
+//	    try {
+//	        // Vérifiez si la facture existe
+//	        Facture facture = factureService.getFactureById(id);
+//
+//	        if (facture != null) {
+//	            // Supprimez la facture
+//	            factureService.deleteFacture(id);
+//
+//	            // Ajoutez les en-têtes CORS appropriés
+//	            HttpHeaders headers = new HttpHeaders();
+//	            headers.add("Access-Control-Allow-Origin", "*"); // Changez '*' avec le domaine de votre frontend
+//	            return ResponseEntity.ok().headers(headers).body("Facture supprimée avec succès.");
+//	        } else {
+//	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Facture introuvable.");
+//	        }
+//	    } catch (Exception e) {
+//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+//	                             .body("Erreur lors de la suppression de la facture : " + e.getMessage());
+//	    }
+//	}
+//	   @PutMapping("/facture/{factureId}")
+//	    public ResponseEntity<?> updateFacture(@PathVariable Long factureId, @RequestBody Facture updatedFacture) {
+//	        try {
+//	            // Vérifiez si la facture existe
+//	            Facture existingFacture = factureService.getFactureById(factureId);
+//
+//	            if (existingFacture != null) {
+//	                // Mettez à jour les données de la facture
+//	                existingFacture.setNumero(updatedFacture.getNumero());
+//	                existingFacture.setDateCreation(updatedFacture.getDateCreation());
+//	                existingFacture.setName(updatedFacture.getName());
+//	                existingFacture.setAdresse(updatedFacture.getAdresse());
+//	                existingFacture.setTelephone(updatedFacture.getTelephone());
+//	                existingFacture.setMail(updatedFacture.getMail());
+//	                existingFacture.setFactureHTT(updatedFacture.getFactureHTT());
+//	                existingFacture.setFactureTTC(updatedFacture.getFactureTTC());
+//
+//	                // Enregistrez la facture mise à jour
+//	                factureService.saveFacture(existingFacture);
+//
+//	                return ResponseEntity.ok("Facture mise à jour avec succès.");
+//	            } else {
+//	                return ResponseEntity.notFound().build();
+//	            }
+//	        } catch (Exception e) {
+//	            return ResponseEntity.internalServerError().body("Erreur lors de la mise à jour de la facture : " + e.getMessage());
+//	        }
+//	    }
+//	}
+//une classe AuthenticationController qui est une classe de contrôleur dans une application web Spring Boot.
+
+//Voici ce que signifient les annotations et les méthodes dans ce code :
+
+//@RestController : Cette annotation indique que la classe est un contrôleur REST, 
+//ce qui signifie qu'elle traite les requêtes HTTP et renvoie des réponses au format JSON.
+
+//@RequestMapping("api/v1/auth") : Cette annotation spécifie le chemin de base pour toutes 
+//les méthodes de ce contrôleur. Ainsi, toutes les requêtes HTTP vers /api/v1/auth seront traitées par les méthodes de ce contrôleur.
+
+//@Autowired : Cette annotation permet l'injection de dépendances en recherchant un bean approprié à injecter. 
+//Dans ce cas, elle est utilisée pour injecter une instance de AuthenticationService dans le contrôleur.
+
+//@GetMapping("/coucou") : Cette annotation indique que la méthode hello() 
+//répond aux requêtes HTTP de type GET avec le chemin /coucou. Elle renvoie une chaîne de caractères "Coucou les copains".
+
+//@PostMapping("/register") : Cette annotation indique que la méthode register() 
+//répond aux requêtes HTTP de type POST avec le chemin /register. 
+//Elle prend un objet RegisterRequestDto dans le corps de la requête (annoté avec @RequestBody) et 
+//renvoie une ResponseEntity qui peut contenir différentes réponses en fonction du résultat de l'appel à authenticationService.register(request).
+//ici on appelle l'User
+
+//@PostMapping("/authenticate") : Cette annotation indique que la méthode authenticate() 
+//répond aux requêtes HTTP de type POST avec le chemin /authenticate. 
+//Elle prend un objet AuthenticationRequestDto dans le corps de la requête (annoté avec @RequestBody) et 
+//renvoie une ResponseEntity qui peut contenir différentes réponses en fonction du résultat de l'appel à authenticationService.authenticate(request).
+//ici on appelle l'Admin
+
+//En résumé, ce contrôleur gère les requêtes HTTP liées à l'authentification et à l'enregistrement des utilisateurs. 
+//Il fait appel à la classe AuthenticationService pour effectuer les opérations métier nécessaires et 
+//renvoie les réponses appropriées aux clients qui consomment l'API. function renderFactureButtons(facture) {
+  return `
+      <td>
+          <a href="mailto:${facture.mail}"><i class="fas fa-envelope"></i></a>
+          <a href="#" onclick="imprimerFacture(${facture.numero}); return false;"><i class="fas fa-print"></i></a>
+          <a href="${API_BASE_URL}${ADMINS_FACTURE}/download/${facture.numero}" download><i class="fas fa-download"></i></a>
+          <button onclick="supprimerFacture(${facture.numero})"><i class="fas fa-trash-alt"></i></button>
+          <button onclick="modifierFacture(${facture.numero})"><i class="fas fa-edit"></i></button>
+      </td>`;
+}
+// Function to render the select element for facture status
+function renderFactureStatusSelect(facture) {
+  return `
+      <td>
+          <select onchange="changerStatut(${facture.numero}, this.value)">
+              <option value="ATTENTE" ${
+                facture.statut === "ATTENTE" ? "selected" : ""
+              }>ATTENTE</option>
+              <option value="ENVOYE" ${
+                facture.statut === "ENVOYE" ? "selected" : ""
+              }>ENVOYE</option>
+              <option value="PAYE" ${
+                facture.statut === "PAYE" ? "selected" : ""
+              }>PAYE</option>
+          </select>
+      </td>`;
+}
+
+function getAndDisplayFactures() {
+//   try {
+//     const response =  fetch(`${API_BASE_URL}${ADMINS_FACTURE}`, {
+//       method: "GET",
+//       headers: {
+//         Authorization: "Bearer " + localStorage.getItem("tokenutilise"),
+//       },
+//     });
+
+//     if (!response.ok) {
+//       throw new Error("Erreur lors de la récupération des factures.");
+//     }
+
+//     const data = response.json();
+//     const facturesTableBody = document.getElementById("factures-table-body");
+//     facturesTableBody.innerHTML = "";
+
+//     data.forEach((facture) => {
+//       const row = document.createElement("tr");
+//       row.innerHTML = `
+//         <td>${facture.numero}</td>
+//         <td>${facture.dateCreation}</td>
+//         <td>${facture.name}</td>
+//         <td>${facture.adresse}</td>
+//         <td>${facture.telephone}</td>
+//         <td>${facture.mail}</td>
+//         <td>${facture.factureHTT}</td>
+//         <td>${facture.factureTTC}</td>
+//         <td>
+//         <select class="action-statut">
+//             <option value="ATTENTE" ${facture.statut === 'ATTENTE' ? 'selected' : ''}>ATTENTE</option>
+//             <option value="ENVOYE" ${facture.statut === 'ENVOYE' ? 'selected' : ''}>ENVOYE</option>
+//             <option value="PAYE" ${facture.statut === 'PAYE' ? 'selected' : ''}>PAYE</option>
+//         </select>
+//     </td>
+//         <td>
+//           <button class="edit-button" data-id="${facture.id}">Éditer</button>
+//           <button class="delete-button" data-id="${facture.id}">Supprimer</button>
+//         </td>
+//       `;
+//       facturesTableBody.appendChild(row);
+//     });
+
+//     document.querySelectorAll(".edit-button").forEach((button) => {
+//       button.addEventListener("click", (event) => {
+//         const id = event.target.getAttribute("data-id");
+//         editFacture(id);
+//       });
+//     });
+
+//     document.querySelectorAll(".delete-button").forEach((button) => {
+//       button.addEventListener("click", (event) => {
+//         const id = event.target.getAttribute("data-id");
+//         deleteFacture(id);
+//       });
+//     });
+//   } catch (error) {
+//     console.log("Erreur : ", error);
+//   }
+// }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   getAndDisplayFactures();
+// });
+
+//  function deleteFacture(id) {
+//   const confirmation = confirm(
+//     "Voulez-vous vraiment supprimer cette facture ?"
+//   );
+
+//   if (confirmation) {
+//     const data = {};
+
+//     try {
+//       const response = fetch(
+//         `${API_BASE_URL}/admins/facture/${id}`, // Utilisez API_BASE_URL pour construire l'URL
+//         {
+//           method: "DELETE",
+//           headers: {
+//             Authorization: "Bearer " + localStorage.getItem("tokenutilise"),
+//             "Cache-Control": "no-cache",
+//             Pragma: "no-cache",
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify(data),
+//         }
+//       );
+
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! Status: ${response.status}`);
+//       }
+
+//       const responseData =  response.json();
+//       console.log(responseData);
+
+//       const deletedRow = document.querySelector(`[data-id="${id}"]`);
+//       if (deletedRow) {
+//         deletedRow.parentElement.removeChild(deletedRow);
+
+//         // Actualisez la page après la suppression
+//         getAndDisplayFactures();
+//       } else {
+//         console.error(
+//           "L'élément à supprimer n'a pas été trouvé dans le tableau."
+//         );
+//       }
+//     } catch (error) {
+//       console.error("Error:", error);
+//     }
+//   }
+// }
+
+// async function editFacture(id) {
+//   try {
+//     const response = await fetch(
+//       `${API_BASE_URL}/admins/facture/${id}`,
+//       {
+//         method: "GET",
+//         headers: {
+//           Authorization: "Bearer " + localStorage.getItem("tokenutilise"),
+//         },
+//       }
+//     );
+
+//     if (!response.ok) {
+//       throw new Error(`Erreur HTTP ! Statut : ${response.status}`);
+//     }
+
+//     const facture = await response.json();
+
+//     document.getElementById("edit-numero").value = facture.numero;
+//     document.getElementById("edit-form").setAttribute("data-id", id);
+//     document.getElementById("edit-form").style.display = "block";
+//   } catch (error) {
+//     console.error("Erreur :", error);
+//   }
+// }
+
+// document
+//   .getElementById("update-button")
+//   .addEventListener("click", async (event) => {
+//     event.preventDefault();
+//     const id = document.getElementById("edit-form").getAttribute("data-id");
+//     const updatedNumero = document.getElementById("edit-numero").value;
+//     const updatedFactureData = {
+//       numero: updatedNumero,
+//     };
+
+//     try {
+//       const response = await fetch(
+//         `${API_BASE_URL}/admins/facture/${factureId}`,
+//         {
+//           method: "PUT",
+//           headers: {
+//             Authorization: "Bearer " + localStorage.getItem("tokenutilise"),
+//             "Cache-Control": "no-cache",
+//             Pragma: "no-cache",
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify(updatedFactureData),
+//         }
+//       );
+
+//       if (!response.ok) {
+//         throw new Error(`Erreur HTTP ! Statut : ${response.status}`);
+//       }
+
+//       const data = await response.json();
+//       console.log(data);
+//       window.location.href = "../connexion/factures.html";
+//     } catch (error) {
+//       console.error("Erreur :", error);
+//     }
+//   });
+
+// import { ADMINS_FACTURE, API_BASE_URL } from "../Constantes.js";
+
+// // Fonction pour supprimer une facture
+// function deleteFacture(id) {
+//   // Demandez confirmation à l'utilisateur avant de supprimer la facture.
+//   const confirmation = confirm(
+//     "Voulez-vous vraiment supprimer cette facture ?"
+//   );
+
+//   if (confirmation) {
+//     // Créer un objet data si vous avez des données à envoyer.
+//     const data = {
+//       // propriétés de données ici
+//     };
+
+//     fetch(`http://localhost:8081/cda/projet/admins/facture/${id}`, {
+//       method: "DELETE",
+//       headers: {
+//         Authorization: "Bearer " + localStorage.getItem("tokenutilise"),
+//         "Cache-Control": "no-cache",
+//         Pragma: "no-cache",
+//         "Content-Type": "application/json", // Ajoutez le type de contenu
+//       },
+//       body: JSON.stringify(data),
+//     })
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         return response.json();
+//       })
+//       .then((data) => {
+//         // Handle the response data, if needed
+//         console.log(data);
+
+//         // Supprimez la ligne correspondante du tableau HTML
+//         const deletedRow = document.querySelector(`[data-id="${id}"]`);
+//         if (deletedRow) {
+//           deletedRow.parentElement.removeChild(deletedRow);
+//         } else {
+//           console.error(
+//             "L'élément à supprimer n'a pas été trouvé dans le tableau."
+//           );
+//         }
+//       })
+//       .catch((error) => {
+//         // Handle errors
+//         console.error("Error:", error);
+//       });
+//   }
+// }
+// // Fonction pour obtenir et afficher les factures
+// function getAndDisplayFactures() {
+//   fetch(API_BASE_URL + ADMINS_FACTURE, {
+//     method: "GET",
+//     headers: {
+//       Authorization: "Bearer " + localStorage.getItem("tokenutilise"),
+//     },
+//   })
+//     .then((response) => {
+//       if (response.ok) {
+//         return response.json();
+//       } else {
+//         alert("Erreur lors de la récupération des factures.");
+//         throw new Error("Erreur lors de la récupération des factures.");
+//       }
+//     })
+//     .then((data) => {
+//       // Sélectionnez l'élément du DOM où vous souhaitez afficher les factures
+//       const facturesTableBody = document.getElementById("factures-table-body");
+
+//       // Effacez le contenu précédent
+//       facturesTableBody.innerHTML = "";
+
+//       // Parcourez les données et ajoutez chaque facture au tableau
+//       data.forEach((facture) => {
+//         const row = document.createElement("tr");
+//         row.innerHTML = `
+//           <td>${facture.numero}</td>
+//           <td>${facture.dateCreation}</td>
+//           <td>${facture.name}</td>
+//           <td>${facture.adresse}</td>
+//           <td>${facture.telephone}</td>
+//           <td>${facture.mail}</td>
+//           <td>${facture.factureHTT}</td>
+//           <td>${facture.factureTTC}</td>
+//           <td>
+//             <button class="edit-button" data-id="${facture.id}">Éditer</button>
+//             <button class="delete-button" data-id="${facture.id}">Supprimer</button>
+//           </td>
+//         `;
+//         facturesTableBody.appendChild(row);
+//       });
+
+//       document.querySelectorAll(".edit-button").forEach((button) => {
+//         button.addEventListener("click", (event) => {
+//           const id = event.target.getAttribute("data-id");
+//           updateFacture(id); // Appeler la fonction updateFacture avec l'ID de la facture
+//         });
+//       });
+
+//       // Écouteurs d'événements pour les boutons "Supprimer"
+//       document.querySelectorAll(".delete-button").forEach((button) => {
+//         button.addEventListener("click", (event) => {
+//           const id = event.target.getAttribute("data-id");
+//           deleteFacture(id);
+//         });
+//       });
+//     })
+//     .catch((error) => {
+//       console.log("Erreur : ", error);
+//     });
+// }
+
+// // Appelez cette fonction pour afficher les factures au chargement de la page
+// document.addEventListener("DOMContentLoaded", () => {
+//   getAndDisplayFactures();
+// });
+// function editFacture(id) {
+//   // Récupérer les données de la facture à partir de l'ID
+//   fetch(`http://localhost:8081/cda/projet/admins/facture/${id}`, {
+//     method: "GET",
+//     headers: {
+//       Authorization: "Bearer " + localStorage.getItem("tokenutilise"),
+//     },
+//   })
+//     .then((response) => {
+//       if (response.ok) {
+//         return response.json();
+//       } else {
+//         throw new Error(`Erreur HTTP ! Statut : ${response.status}`);
+//       }
+//     })
+//     .then((facture) => {
+//       // Remplir le formulaire d'édition avec les données de la facture
+//       document.getElementById("edit-numero").value = facture.numero;
+//       // Remplir d'autres champs selon vos besoins
+
+//       // Enregistrez l'ID de la facture en tant qu'attribut de formulaire (pour utilisation lors de la mise à jour)
+//       document.getElementById("edit-form").setAttribute("data-id", id);
+
+//       // Afficher le formulaire d'édition (vous devez avoir un formulaire HTML pour l'édition)
+//       // Vous pouvez utiliser un modal, une page distincte, ou tout autre mécanisme d'édition que vous préférez
+//       // Par exemple, si vous avez un formulaire avec l'ID "edit-form", vous pourriez faire quelque chose comme :
+//       document.getElementById("edit-form").style.display = "block";
+//     })
+//     .catch((error) => {
+//       // Gérez les erreurs
+//       console.error("Erreur :", error);
+//     });
+// }
+
+// // Gestionnaire d'événements pour le bouton de mise à jour dans le formulaire d'édition
+// document
+//   .getElementById("update-button")
+//   .addEventListener("click", function (event) {
+//     // Empêcher le comportement par défaut du bouton (par exemple, soumettre un formulaire)
+//     event.preventDefault();
+
+//     // Récupérer l'ID de la facture depuis l'attribut de formulaire
+//     const id = document.getElementById("edit-form").getAttribute("data-id");
+
+//     // Récupérer les valeurs modifiées du formulaire
+//     const updatedNumero = document.getElementById("edit-numero").value;
+//     // Récupérer d'autres valeurs selon vos besoins
+
+//     // Créer un objet avec les nouvelles informations de la facture
+//     const updatedFactureData = {
+//       numero: updatedNumero,
+//       // Ajoutez d'autres propriétés selon vos besoins
+//     };
+
+//     // Appelez la fonction pour mettre à jour la facture
+//     updateFacture(id, updatedFactureData);
+//   });
+// function updateFacture(id, updatedFactureData) {
+//   fetch(`http://localhost:8081/cda/projet/admins/facture/${id}`, {
+//     method: "PUT",
+//     headers: {
+//       Authorization: "Bearer " + localStorage.getItem("tokenutilise"),
+//       "Cache-Control": "no-cache",
+//       Pragma: "no-cache",
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(updatedFactureData),
+//   })
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error(`Erreur HTTP ! Statut : ${response.status}`);
+//       }
+//       return response.json();
+//     })
+//     .then((data) => {
+//       // Traitez les données de réponse, si nécessaire
+//       console.log(data);
+
+//       // Redirigez l'utilisateur vers la page des factures après la mise à jour
+//       window.location.href = "../connexion/factures.html";
+//     })
+//     .catch((error) => {
+//       // Gérez les erreurs
+//       console.error("Erreur :", error);
+//     });
+// }
+// function submitFactureForm() {
+//   // Récupérez les valeurs des champs de saisie
+//   const numero = document.getElementById("numero").value;
+//   // Récupérez d'autres valeurs selon vos besoins
+
+//   // Créez un objet avec les nouvelles informations de la facture
+//   const updatedFactureData = {
+//     numero: numero,
+//     // Ajoutez d'autres propriétés selon vos besoins
+//   };
+
+//   // Récupérez l'ID de la facture à partir de l'URL
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const factureId = urlParams.get("id");
+
+//   // Appelez la fonction pour mettre à jour la facture
+//   updateFacture(factureId, updatedFactureData);
+// }
+
+// function updateFacture(id, updatedFactureData) {
+//   fetch(`http://localhost:8081/cda/projet/admins/facture/${id}`, {
+//     method: "PUT",
+
+//     headers: {
+//       Authorization: "Bearer " + localStorage.getItem("tokenutilise"),
+//       "Cache-Control": "no-cache",

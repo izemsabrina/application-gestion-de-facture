@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+   }
+   
+   body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+ 
+   
+  
+   }
+  
+   header{
+    
+       background-color:white ;
+       font-family: 'Courier New', Courier, monospace;
+       font-size: large;
+   }
+   
+   #header{
+       float: right;
+      
+   }
+   .containers{
+       width: 500px;
+       padding: 40px;
+       border: 1px solid hsl(0, 9%, 96%);
+       border-radius: 5px;
+       margin: 0 auto;
+    margin-top: 51px;
+       background-color: #8ECAE6;
+   }
+   
+   
+   
+   input{
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+   }
+   
+   .submit{
+    width:100%;
+    padding: 10px;
+    background-color: #3bb2ea;
+    color: white;
+    border: none;
+    border-radius: 3px;
+   }
+   dashboard {
+    
+     padding: 40px;
+   }
+    .widget {
+    padding: 40px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+   }
+   
+   .facture{
+       width: 900px;
+       padding: 50px;
+       border: 1px solid hsl(0, 40%, 44%);
+       border-radius: 5px;
+       margin: 0 auto;
+       margin-top: 51px;
+       font-family:Arial, Helvetica, sans-serif;
+       font-size:large;
+       background-color: #119dc0;
+   }
+   .submitf{
+   
+      /* flex-basis: 48%; */
+      
+      color: black;
+      height: 40px;
+      border-radius: 20px;
+      width: 200px;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      /* transition: background 1s; */
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: large;
+    
+   }
+   table{
+       border: 1px solid black;
+       width: 100%;
+       padding: 15px;
+       margin: 5px;
+   }
+   
+   
+      .sidebar {
+       margin: 0;
+       padding: 0;
+       width: 250px;
+       background-color:  #f2f2f2;
+       position: fixed;
+       height: 100%;
+       overflow: auto;
+     }
+     
+     .sidebar a {
+       display: block;
+       color: rgb(5, 1, 1);
+       padding: 16px;
+       text-decoration: none;
+       margin-bottom: 50px;
+     }
+   .sidebar a.active {
+       background-color: #8ECAE6;
+       color: white;
+     }
+     .sidebar a:hover {
+       background-color: white;
+       color: rgb(240, 237, 237);
+     }
+     a.hover {
+       background-color: red;
+     }
+     .mere{
+      border:10px solid #9b59b6;
+     }
+     
+     
+     @media screen and (min-width: 500px) {
+       .textcontent {
+         margin-left: 250px;
+       }
+     }
+     @media screen and (max-width: 700px) {
+    
+       .sidebar {
+         width: 100%;
+         height: auto;
+         position: relative;
+       }
+   .textcontent {
+         margin-left: 00px;
+       }
+       .sidebar a {
+         float: left;
+       }
+       
+     }
+     
+     .table-scroll {
+       overflow-x: auto;
+       max-width: 1480px;
+       box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.35);
+       margin: auto;
+     }
+   
+     .welcome{
+       width: 700px;
+       height: 700px;
+       margin: 100px auto;
+       position: relative;
+       background-image: url("../img/a.jpg");
+       background-repeat: no-repeat;
+       background-position:center center ;
+       background-size: cover;
+       
+      
+       
+   }
+   .welcome span {
+       width: 60px;
+       height: 30px;
+       position: absolute;
+       left: 0px;
+       top: 0px;
+       background-color: #9b59b6;
+       animation: waving 3s both infinite ease-in-out;
+       color: #fff;
+       text-align: center;
+         font-weight: bold;
+     font-family: Lobster
+     
+   }
+   .welcome span:nth-of-type(2){
+       left: 60px;
+       top: 0px;
+       animation-delay: .5s;
+   }
+   .welcome span:nth-of-type(3){
+       left: 120px;
+       top: 0px;
+       animation-delay: 1s;
+   }
+   .welcome span:nth-of-type(4){
+       left: 180px;
+       top: 0px;
+       animation-delay: 1.5s;
+   } 
+   .welcome span:nth-of-type(5){
+       left: 240px;
+       top: 0px;
+       animation-delay: 2s;
+   }
+   @keyframes waving{
+       0%,100%{
+           background-color: #219ebc;
+           transform: scaleY(1) translateZ(0px) rotateY(0deg);
+       }
+       50%{
+           background-color: #3498db;
+           transform: scaleY(2) translateZ(100px) rotatey(360deg);
+       }
+   }
+   
+   @media  screen and (max-width:1024px) and(min-width:576px){
+       .facture{
+           width: 90%;
+       
+       }
+       .form{
+           width: 90%;
+       }
+       .containers{
+           width: 90%;
+       }
+      }

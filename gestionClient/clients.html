@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Liste des Factures</title>
+  </head>
+  <body>
+    <header>
+      <h1>Liste des Factures</h1>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>Numéro</th>
+          <th>Date de Création</th>
+          <th>Nom</th>
+          <th>Adresse</th>
+          <th>Téléphone</th>
+          <th>Mail</th>
+          <th>Facture HTT</th>
+          <th>Facture TTC</th>
+          <th>Actions</th>
+          <th>statut</th>
+        </tr>
+      </thead>
+      <tbody id="factures-table-body">
+        <!-- Les données des factures seront affichées ici -->
+      </tbody>
+    </table>
+    <h3 class="mt-5">Total des Factures</h3>
+			<table class="table">
+					<tbody id="totalTableBody">
+							<!-- La somme des factures HTT et TTC sera insérée ici par JavaScript -->
+					</tbody>
+
+    <script type="module" src="client.js"></script>
+  </body>
+</html>
